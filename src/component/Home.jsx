@@ -1,5 +1,4 @@
 import React from "react";
-import hero from "../assets/hero.jpg";
 import bg from "../assets/bg.jpg";
 import Products from "./Products";
 

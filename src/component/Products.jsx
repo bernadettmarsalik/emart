@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Skeleton from "react-loading-skeleton";
 
 export default function Products() {
   const [data, setData] = useState([]);
@@ -8,25 +9,48 @@ export default function Products() {
 
   // get products
   useEffect(() => {
-    const getProducts = async () => {
+    const fetchProducts = async () => {
       setLoading(true);
       const response = await fetch("https://fakestoreapi.com/products");
+      const responseData = await response.json();
+
       if (componentMounted) {
-        setData(await response.clone().json());
-        setFilter(await response.json());
+        setData(responseData);
+        setFilter(responseData);
         setLoading(false);
-        console.log(filter);
       }
       return () => {
         componentMounted = false;
       };
     };
-    getProducts();
+
+    fetchProducts();
   }, []);
 
   // loading
   const Loading = () => {
-    return <>Loading...</>;
+    return (
+      <>
+        <div className="col-md-3">
+          <Skeleton height={350} />
+        </div>
+        <div className="col-md-3">
+          <Skeleton height={350} />
+        </div>
+        <div className="col-md-3">
+          <Skeleton height={350} />
+        </div>
+        <div className="col-md-3">
+          <Skeleton height={350} />
+        </div>
+      </>
+    );
+  };
+
+  // filter products
+  const filterProduct = (cat) => {
+    const updatedList = data.filter((x) => x.category === cat);
+    setFilter(updatedList);
   };
 
   // show products
@@ -34,13 +58,36 @@ export default function Products() {
     return (
       <>
         <div className="buttons d-flex justify-content-center mb-5 pb-5">
-          <button className="btn btn-outline-dark me-2">All</button>
-          <button className="btn btn-outline-dark me-2">Men's Clothing</button>
-          <button className="btn btn-outline-dark me-2">
+          <button
+            className="btn btn-outline-dark me-2"
+            onClick={() => setFilter(data)}
+          >
+            All
+          </button>
+          <button
+            className="btn btn-outline-dark me-2"
+            onClick={() => filterProduct("men's clothing")}
+          >
+            Men's Clothing
+          </button>
+          <button
+            className="btn btn-outline-dark me-2"
+            onClick={() => filterProduct("women's clothing")}
+          >
             Women's Clothing
           </button>
-          <button className="btn btn-outline-dark me-2">Jewellery</button>
-          <button className="btn btn-outline-dark me-2">Electronics</button>
+          <button
+            className="btn btn-outline-dark me-2"
+            onClick={() => filterProduct("jewelery")}
+          >
+            Jewellery
+          </button>
+          <button
+            className="btn btn-outline-dark me-2"
+            onClick={() => filterProduct("electronics")}
+          >
+            Electronics
+          </button>
         </div>
         {filter.map((product) => {
           return (
@@ -53,8 +100,10 @@ export default function Products() {
                     alt={product.title}
                     height="280px"
                   />
-                  <div class="card-body">
-                    <h5 class="card-title mb-0">{product.title}</h5>
+                  <div class="card-body d-flex flex-column justify-content-between align-items-center">
+                    <h5 class="card-title mb-0">
+                      {product.title.substring(0, 12)}
+                    </h5>
                     <p class="card-text lead fw-bold">$ {product.price}</p>
                     <a href="#" class="btn btn-outline-dark">
                       Buy
