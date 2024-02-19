@@ -15,6 +15,8 @@ import {
 import Home from "./component/Home";
 import Products from "./component/Products";
 import Product from "./component/Product";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
