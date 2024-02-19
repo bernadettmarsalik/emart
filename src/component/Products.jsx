@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Skeleton from "react-loading-skeleton";
+import { NavLink } from "react-router-dom";
 
 export default function Products() {
   const [data, setData] = useState([]);
@@ -56,7 +57,7 @@ export default function Products() {
   // show products
   const ShowProducts = () => {
     return (
-      <>
+      <div>
         <div className="buttons d-flex justify-content-center mb-5 pb-5">
           <button
             className="btn btn-outline-dark me-2"
@@ -89,35 +90,37 @@ export default function Products() {
             Electronics
           </button>
         </div>
-        {filter.map((product) => {
-          return (
-            <>
-              <div className="col-md-3 mb-4">
-                <div class="card h-100 text-center p-4" key={product.id}>
-                  <img
-                    src={product.image}
-                    class="card-img-top"
-                    alt={product.title}
-                    height="280px"
-                  />
-                  <div class="card-body d-flex flex-column justify-content-between align-items-center">
-                    <h5 class="card-title mb-0">
-                      {product.title.substring(0, 12)}
-                    </h5>
-                    <p class="card-text lead fw-bold">$ {product.price}</p>
-                    <a href="#" class="btn btn-outline-dark">
-                      Buy
-                    </a>
-                  </div>
+        <div className="row">
+          {filter.map((product) => (
+            <div className="col-md-3 mb-4" key={product.id}>
+              <div className="card h-100 text-center p-3">
+                <img
+                  src={product.image}
+                  className="card-img-top p-3 w-100 h-100"
+                  alt={product.title}
+                  height="250px"
+                />
+                <div className="card-body d-flex flex-column justify-content-between align-items-center">
+                  <h5 className="card-title mb-0">
+                    {product.title.substring(0, 12)}
+                  </h5>
+                  <p className="card-text lead fw-bold mb-3">
+                    $ {product.price}
+                  </p>
+                  <NavLink
+                    to={`/products/${product.id}`}
+                    className="btn btn-outline-dark"
+                  >
+                    Buy
+                  </NavLink>
                 </div>
               </div>
-            </>
-          );
-        })}
-      </>
+            </div>
+          ))}
+        </div>
+      </div>
     );
   };
-
   return (
     <div>
       <div className="container my-3 py-3">
