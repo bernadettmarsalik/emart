@@ -38,6 +38,7 @@ const handleCart = (state = cart, action) => {
       break;
 
     default:
+      return state;
       break;
   }
 };
