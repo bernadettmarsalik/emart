@@ -3,6 +3,7 @@ import Skeleton from "react-loading-skeleton";
 import { NavLink, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addCart } from "../redux/action";
+import store from "../redux/store";
 
 export default function Product() {
   const { id } = useParams();
