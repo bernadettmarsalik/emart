@@ -57,34 +57,34 @@ export default function Products() {
   // show products
   const ShowProducts = () => {
     return (
-      <div>
-        <div className="buttons d-flex justify-content-center mb-5 pb-5">
+      <div className="container">
+        <div className="buttons d-flex flex-column flex-md-row justify-content-center mb-5 pb-5">
           <button
-            className="btn btn-outline-dark me-2"
+            className="btn btn-outline-dark me-2 mb-2"
             onClick={() => setFilter(data)}
           >
             All
           </button>
           <button
-            className="btn btn-outline-dark me-2"
+            className="btn btn-outline-dark me-2 mb-2"
             onClick={() => filterProduct("men's clothing")}
           >
             Men's Clothing
           </button>
           <button
-            className="btn btn-outline-dark me-2"
+            className="btn btn-outline-dark me-2 mb-2"
             onClick={() => filterProduct("women's clothing")}
           >
             Women's Clothing
           </button>
           <button
-            className="btn btn-outline-dark me-2"
+            className="btn btn-outline-dark me-2 mb-2"
             onClick={() => filterProduct("jewelery")}
           >
             Jewellery
           </button>
           <button
-            className="btn btn-outline-dark me-2"
+            className="btn btn-outline-dark me-2 mb-2"
             onClick={() => filterProduct("electronics")}
           >
             Electronics
@@ -96,9 +96,8 @@ export default function Products() {
               <div className="card h-100 text-center p-3">
                 <img
                   src={product.image}
-                  className="card-img-top p-3 w-100 h-100"
+                  className="card-img-top p-3 w-100 h-75"
                   alt={product.title}
-                  height="250px"
                 />
                 <div className="card-body d-flex flex-column justify-content-between align-items-center">
                   <h5 className="card-title mb-0">

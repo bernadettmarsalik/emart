@@ -28,12 +28,12 @@ export default function Home() {
             alt="Background"
           />
           <div className="card-img-overlay">
-            <div className="container">
+            <div className="lg-w-50 w-100">
               <h5 className="card-title display-3 fw-bolder mb-0">
-                NEW SEASON ARRIVALS
+                SEASON ARRIVALS
               </h5>
-              <p className="card-text">Discover all the trends.</p>
-              <p className="card-text">
+              <p className="card-text display-4">Discover all the trends.</p>
+              <p className="card-text display-5">
                 <small>24 SPRING/SUMMER</small>
               </p>
             </div>
