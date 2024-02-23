@@ -7,7 +7,7 @@ export default function Navbar() {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary navbar-light bg-white py-3 shadow">
+      <nav className="navbar navbar-expand-lg bg-body-tertiary navbar-light bg-white py-3 shadow-sm">
         <div className="container-fluid">
           <NavLink className="navbar-brand fw-bold fs-4" to="/">
             ECOMMERCE COLLECTION
@@ -52,8 +52,7 @@ export default function Navbar() {
                 Login
               </NavLink>
               <NavLink to="/register" className="btn btn-outline-dark ms-2">
-                <i className="fa fa-sign-up me-2"></i>
-                Register
+                <i className="fa-solid fa-user-plus me-2"></i> Register
               </NavLink>
               <NavLink to="/cart" className="btn btn-outline-dark ms-2">
                 <i className="fa fa-shopping-cart me-2"></i>

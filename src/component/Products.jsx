@@ -58,7 +58,7 @@ export default function Products() {
   const ShowProducts = () => {
     return (
       <div className="container">
-        <div className="buttons d-flex flex-column flex-md-row justify-content-center mb-5 pb-5">
+        <div className="buttons d-flex flex-column flex-md-row justify-content-center mb-2 pb-2">
           <button
             className="btn btn-outline-dark me-2 mb-2"
             onClick={() => setFilter(data)}
