@@ -18,12 +18,12 @@ export default function Home() {
     <>
       <div className="hero">
         <div
-          className="card text-bg-white border-0 rounded-0"
+          className="card text-bg-white border-0 rounded-0 shadow"
           style={containerStyle}
         >
           <img
             src={bg}
-            className="card-img  rounded-0"
+            className="card-img rounded-0 "
             style={imageStyle}
             alt="Background"
           />

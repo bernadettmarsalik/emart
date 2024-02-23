@@ -92,14 +92,14 @@ export default function Products() {
         </div>
         <div className="row">
           {filter.map((product) => (
-            <div className="col-md-3 mb-4" key={product.id}>
-              <div className="card h-100 text-center p-3">
+            <div className="col-md-4 col-lg-3 mb-4 p-2" key={product.id}>
+              <div className="card h-100 w-100 text-center p-5">
                 <img
                   src={product.image}
                   className="card-img-top p-3 w-100 h-75"
                   alt={product.title}
                 />
-                <div className="card-body d-flex flex-column justify-content-between align-items-center">
+                <div className="card-body d-flex flex-column justify-content-between align-items-center pb-0">
                   <h5 className="card-title mb-0">
                     {product.title.substring(0, 12)}
                   </h5>
@@ -108,7 +108,7 @@ export default function Products() {
                   </p>
                   <NavLink
                     to={`/products/${product.id}`}
-                    className="btn btn-outline-dark"
+                    className="btn btn-outline-dark "
                   >
                     Buy
                   </NavLink>
